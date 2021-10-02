@@ -31,7 +31,7 @@ const App = () => {
 
   return (
     <NavigationContainer>
-      <StatusBar style="auto" />
+      <StatusBar style='light' />
       <AppNavigation />
     </NavigationContainer>
   );

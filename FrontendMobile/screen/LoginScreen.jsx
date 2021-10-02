@@ -22,7 +22,8 @@ export const LoginScreen = ({ navigation }) => {
         setIsLoading(true);
         setTimeout(() => {
             setIsLoading(false);
-        }, 2300);
+            navigateTo('Home');
+        }, 1300);
     }
 
     const navigateTo = (nameScreen) => navigation.navigate(nameScreen);
@@ -56,6 +57,7 @@ export const LoginScreen = ({ navigation }) => {
                                 value={userData.password}
                                 secureTextEntry={hidePassword}
                                 onChangeText={(value) => handleUserChange('password', value)}
+                                onSubmitEditing={login}
                             />
                             <Ionicons
                                 name={hidePassword ? 'eye-off' : 'eye'}
