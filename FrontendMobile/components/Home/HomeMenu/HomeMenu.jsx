@@ -11,7 +11,7 @@ export const HomeMenu = ({ open, onClose }) => {
             animationOutTiming={600}
             useNativeDriver={true}
             isVisible={open}
-            style={{ margin: 0, padding: 0 }}
+            style={styles.modalStyle}
             onBackButtonPress={onClose}
             onBackdropPress={onClose}
         >
@@ -22,6 +22,9 @@ export const HomeMenu = ({ open, onClose }) => {
 }
 
 const styles = StyleSheet.create({
+    modalStyle: {
+        margin: 0, padding: 0
+    },
     modalView: {
         width: '80%',
         flex: 1,
