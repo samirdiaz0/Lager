@@ -7,14 +7,14 @@ import AppLoading from 'expo-app-loading';
 
 const fetchFonts = () => {
   return Font.loadAsync({
-    'montserrat': require('./assets/fonts/Montserrat-Regular.ttf'),
-    'montserrat-bold': require('./assets/fonts/Montserrat-Bold.ttf'),
-    'montserrat-black': require('./assets/fonts/Montserrat-Black.ttf'),
-    'montserrat-extra-bold': require('./assets/fonts/Montserrat-ExtraBold.ttf'),
     'montserrat-extra-light': require('./assets/fonts/Montserrat-ExtraLight.ttf'),
     'montserrat-light': require('./assets/fonts/Montserrat-Light.ttf'),
+    'montserrat': require('./assets/fonts/Montserrat-Regular.ttf'),
     'montserrat-medium': require('./assets/fonts/Montserrat-Medium.ttf'),
-    'montserrat-semi-bold': require('./assets/fonts/Montserrat-SemiBold.ttf')
+    'montserrat-semi-bold': require('./assets/fonts/Montserrat-SemiBold.ttf'),
+    'montserrat-bold': require('./assets/fonts/Montserrat-Bold.ttf'),
+    'montserrat-extra-bold': require('./assets/fonts/Montserrat-ExtraBold.ttf'),
+    'montserrat-black': require('./assets/fonts/Montserrat-Black.ttf'),
   });
 };
 

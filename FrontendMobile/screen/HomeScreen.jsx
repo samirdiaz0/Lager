@@ -1,20 +1,11 @@
 import React, { useLayoutEffect, useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-import { Colors } from '../constants/Colors';
-import { Feather } from '@expo/vector-icons';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
+import { Colors, HomeGradient } from '../constants/Colors';
 import { HomeMenu } from '../components/Home/HomeMenu/HomeMenu';
-
-const HeaderLeft = (onPress) => {
-    return (
-        <Feather
-            name='menu'
-            style={{ marginLeft: 15 }}
-            size={25}
-            color={Colors.white}
-            onPress={onPress}
-        />
-    )
-}
+import { LinearGradient } from 'expo-linear-gradient';
+import { HeaderLeft } from '../components/Home/HomeMenu/components/HeaderLeft';
+import { LatestEarnings } from '../components/Home/LatestEarningsCard';
+import { HomeKeyPad } from '../components/Home/HomeKeyPad/HomeKeyPad';
 
 export const HomeScreen = ({ navigation }) => {
 
@@ -28,19 +19,58 @@ export const HomeScreen = ({ navigation }) => {
     }, []);
 
     return (
-        <View style={styles.screen}>
-            <HomeMenu
-                open={openMenu}
-                onClose={() => setOpenMenu(false)}
-            />
-            <Text>HomeScreen</Text>
-        </View>
+        <ScrollView
+            showsVerticalScrollIndicator={false}
+            style={{ backgroundColor: Colors.primary }}
+            contentContainerStyle={{ flexGrow: 1 }}
+        >
+            <LinearGradient
+                style={styles.screen}
+                colors={HomeGradient}
+                start={{ x: 0.1, y: 0.1 }}
+                end={{ x: 0.1, y: 0.5 }}
+            >
+                <View style={styles.container}>
+                    <HomeMenu
+                        open={openMenu}
+                        onClose={() => setOpenMenu(false)}
+                    />
+                    <LatestEarnings />
+                    <HomeKeyPad />
+                    <View style={styles.cardExample3}>
+                        <Text>card Example 3</Text>
+                    </View>
+                    <View style={styles.cardExample3}>
+                        <Text>card Example 4</Text>
+                    </View>
+                </View>
+            </LinearGradient>
+        </ScrollView>
     )
 }
 
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
-        backgroundColor: Colors.white
+        alignItems: 'center'
+    },
+    container: {
+        width: '95%',
+        flex: 1
+    },
+    cardExample3: {
+        backgroundColor: 'white',
+        height: 250,
+        marginVertical: 25,
+        padding: 15,
+        borderRadius: 8,
+        shadowColor: "#000",
+        shadowOffset: {
+            width: 0,
+            height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+        elevation: 5,
     }
 })
